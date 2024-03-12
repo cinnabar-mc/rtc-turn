@@ -1,22 +1,41 @@
-[workspace]
-members = [
-    "rtc",
-    "rtc-datachannel",
-    "rtc-dtls",
-    "rtc-ice",
-    "rtc-rtcp",
-    "rtc-rtp",
-    "rtc-sctp",
-    "rtc-sdp",
-    "rtc-shared",
-    "rtc-srtp",
-    "rtc-stun",
-    "reserved/rtc-turn",
-    "reserved/rtc-interceptor",
-    "reserved/rtc-mdns",
-    "reserved/rtc-media",
-]
-resolver = "2"
+[package]
+name = "rtc-turn"
+version = "0.0.0"
+authors = ["Rain Liu <yliu@webrtc.rs>"]
+edition = "2021"
+description = "RTC TURN in Rust"
+license = "MIT/Apache-2.0"
+documentation = "https://docs.rs/rtc-turn"
+homepage = "https://webrtc.rs"
+repository = "https://github.com/webrtc-rs/rtc"
 
-[profile.dev]
-opt-level = 0
+[dependencies]
+shared = { version = "0.2.0", path = "../rtc-shared", package = "rtc-shared", default-features = false, features = [] }
+stun = { version = "0.2.0", path = "../rtc-stun", package = "rtc-stun" }
+
+bytes = "1.5.0"
+log = "0.4.21"
+base64 = "0.22.0"
+rand = "0.8.5"
+ring = "0.17.8"
+md-5 = "0.10.6"
+thiserror = "1.0.57"
+
+[dev-dependencies]
+env_logger = "0.11.3"
+chrono = "0.4.35"
+hex = "0.4.3"
+clap = "4.5.2"
+criterion = "0.5.1"
+
+[features]
+metrics = []
+
+[[bench]]
+name = "bench"
+harness = false
+
+[[example]]
+name = "turn_client_udp"
+path = "examples/turn_client_udp.rs"
+bench = false
