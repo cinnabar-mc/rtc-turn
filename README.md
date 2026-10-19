@@ -8,6 +8,12 @@ dependencies keep the published RTC shared types compatible with consumers.
 Cinnabar maintains focused TURN compatibility changes here. The client remains
 sans I/O: callers supply packets and time, and perform the resulting network I/O.
 
+`ClientConfig::requested_address_family` selects the relay's address family
+independently of the connection to TURN. `None` and IPv4 retain the omitted
+attribute and IPv4 default; IPv6 is encoded in both Allocate requests before
+integrity and fingerprinting. Invalid family values fail before endpoint
+resolution. The allocation remains UDP, including over a TCP carrier.
+
 <h1 align="center">
  <a href="https://webrtc.rs"><img src="https://raw.githubusercontent.com/webrtc-rs/webrtc-rs.github.io/master/res/rtc.png" alt="WebRTC.rs"></a>
  <br>
