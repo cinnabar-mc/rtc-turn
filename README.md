@@ -1,3 +1,13 @@
+# Cinnabar RTC TURN compatibility fork
+
+This crate follows [rtc-turn 0.21.1](https://crates.io/crates/rtc-turn), from
+[webrtc-rs/rtc](https://github.com/webrtc-rs/rtc/tree/2a732df55ca4bcf26b80914fa0f570cfaf74cfcb/rtc-turn).
+It preserves the upstream crate history and MIT/Apache-2.0 licenses. Version-only
+dependencies keep the published RTC shared types compatible with consumers.
+
+Cinnabar maintains focused TURN compatibility changes here. The client remains
+sans I/O: callers supply packets and time, and perform the resulting network I/O.
+
 <h1 align="center">
  <a href="https://webrtc.rs"><img src="https://raw.githubusercontent.com/webrtc-rs/webrtc-rs.github.io/master/res/rtc.png" alt="WebRTC.rs"></a>
  <br>
