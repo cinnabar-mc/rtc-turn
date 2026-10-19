@@ -93,6 +93,7 @@ fn main() -> Result<()> {
         software: String::new(),
         rto_in_ms: 0,
         allocation_refresh_interval_cap: None,
+        requested_address_family: None,
     };
 
     // An application selects the crypto provider; library code never resolves a default.

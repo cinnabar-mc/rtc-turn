@@ -23,6 +23,7 @@ fn create_listening_test_client(rto_in_ms: u64) -> Result<(UdpSocket, Client)> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -45,6 +46,7 @@ fn create_listening_test_client_with_stun_serv() -> Result<(UdpSocket, Client)> 
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -222,6 +224,7 @@ fn test_relay_refresh_timers_run_on_injected_time() -> Result<()> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -303,6 +306,7 @@ fn test_allocation_refresh_interval_cap_is_applied() -> Result<()> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: Some(Duration::from_secs(30)),
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -366,6 +370,7 @@ fn test_overdue_relay_refreshes_are_rescheduled_from_now() -> Result<()> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -433,6 +438,7 @@ fn test_zero_lifetime_relay_does_not_freeze_its_deadline() -> Result<()> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -492,6 +498,7 @@ fn test_refresh_response_reschedules_shorter_lifetime_from_response_time() -> Re
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -544,6 +551,7 @@ fn test_refresh_response_reschedule_applies_interval_cap() -> Result<()> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: Some(Duration::from_secs(20)),
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -602,6 +610,7 @@ fn test_zero_lifetime_response_drops_the_relay() -> Result<()> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
@@ -670,6 +679,7 @@ fn test_zero_lifetime_allocate_response_is_an_error() -> Result<()> {
             software: "TEST SOFTWARE".to_owned(),
             rto_in_ms: 0,
             allocation_refresh_interval_cap: None,
+            requested_address_family: None,
         },
         test_crypto_provider(),
     )?;
