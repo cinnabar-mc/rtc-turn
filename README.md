@@ -1,3 +1,7 @@
+> **Maintenance moved:** use [cinnabar-mc/rtc, branch `cinnabar`](https://github.com/cinnabar-mc/rtc/tree/cinnabar).
+> Its RTC workspace includes this fork's explicit TURN relay-family support and maintained
+> transport fixes. This standalone repository is retained for existing pinned consumers.
+
 # Cinnabar RTC TURN compatibility fork
 
 This crate follows [rtc-turn 0.21.1](https://crates.io/crates/rtc-turn), from
